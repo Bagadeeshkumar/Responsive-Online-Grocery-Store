@@ -2,45 +2,6 @@
 session_start();
 require 'db.php';
 
-// use PHPMailer\PHPMailer\Exception;
-// use PHPMailer\PHPMailer\PHPMailer;
-
-// function mailTo($to, $user, $subject, $body, $success, $error)
-// {
-
-//     require 'vendor/autoload.php';
-
-//     $mail = new PHPMailer(true);
-//     try {
-//         $mail->SMTPDebug = 0;
-//         $mail->isSMTP();
-//         $mail->Host = 'smtp.gmail.com';
-//         $mail->SMTPAuth = true;
-//         $mail->Username = 'projectdemo1310@gmail.com';
-//         $mail->Password = 'project@demo';
-//         $mail->SMTPSecure = 'tls';
-//         $mail->Port = 587;
-
-//         $mail->setFrom('saigrocery@gmail.com', 'onlineshopping');
-//         $mail->addAddress($to, $user);
-//         $mail->isHTML(true);
-//         $mail->Subject = $subject;
-//         $mail->Body = $body;
-//         $mail->SMTPOptions = array(
-//             'ssl' => array(
-//                 'verify_peer' => false,
-//                 'verify_peer_name' => false,
-//                 'allow_self_signed' => true
-//             )
-//         );
-//         if ($mail->send()) {
-//             header($success);
-//         }
-//     } catch (Exception $e) {
-
-//         header($error);
-//     }
-// }
 
 //function to show message
 function message($url, $message)
@@ -105,87 +66,16 @@ if (isset($_POST['reg_submit'])) {
         $_SESSION['address'] = $re_address;
         $_SESSION['pno'] = $reg_pno;
         $_SESSION['pass'] = $re_pass;
-
-        // $otp = rand(10000, 99999);
-        // $_SESSION["otp"] = $otp;
+        
         $run_reg = mysqli_query($conn, "INSERT INTO user(name, email, password, number, address, date) VALUES('{$_SESSION['name']}','{$_SESSION['mail']}','{$_SESSION['pass']}', '{$_SESSION['pno']}','{$_SESSION['address']}',NOW() )");
         if ($run_reg) {
             $forid = mysqli_fetch_assoc(mysqli_query($conn, "SELECT * FROM user WHERE name='{$_SESSION['name']}' OR email='{$_SESSION['mail']}'"));
             $_SESSION["id"] = $forid["user_id"];
             header("Location: user_home.php");
         }
-        // mailTo($re_mail, $reg_user, "Registration Verification!", 'Welcome ' . $reg_user . ' to Online Shopping website.<br><br>OTP verification code is: ' . $otp, "Location:otp.php?msg=Successfully OTP sent!", "Location: index.php?re_error=Unable to send Mail");
     }
 }
 
-/* //resend otp
-if (isset($_POST["re_otp"])) {
-    mailTo($_SESSION["mail"], $_SESSION["name"], "Registration Verification!", 'Welcome ' . $_SESSION["name"] . ' to Online Shopping website.<br><br>OTP verification code is: ' . $_SESSION["otp"], "Location:otp.php?msg=Successfully OTP Resent!", "Location: index.php?re_error=Unable to send Mail");
-} */
-
-//check otp
-/* if (isset($_POST["otp_submit"])) {
-    if ($_SESSION["otp"] == $_POST["u_otp"]) {
-        $run_reg = mysqli_query($conn, "INSERT INTO user(name, email, password, number, address, date) VALUES('{$_SESSION['name']}','{$_SESSION['mail']}','{$_SESSION['pass']}', '{$_SESSION['pno']}','{$_SESSION['address']}',NOW() )");
-        if ($run_reg) {
-            $forid = mysqli_fetch_assoc(mysqli_query($conn, "SELECT * FROM user WHERE name='{$_SESSION['name']}' OR email='{$_SESSION['mail']}'"));
-            $_SESSION["id"] = $forid["user_id"];
-            header("Location: user_home.php");
-        }
-    } else {
-        header("Location: otp.php?otp_error=OTP not matched!");
-    }
-} */
-
-// mail sent for forget password
-/* if (isset($_POST["f_sub"])) {
-    $_SESSION["fmail"] = $_POST["f_email"];
-    $fmail = $_SESSION["fmail"];
-    $pass_upd = mysqli_query($conn, "SELECT * FROM user WHERE email = '$fmail'");
-    if (mysqli_num_rows($pass_upd) == 1) {
-        $fotp = rand(10000, 99999);
-        $_SESSION["f_otp"] = $fotp;
-        mailTo($fmail, "User", 'Verification!', 'Forget Password verification code is: ' . $fotp, "Location:f_otp.php?msg=OTP Successfully sent!", "Location: index.php?error=Unable to send Mail!");
-    } else {
-        header("Location: index.php?error=E-mail id not found!");
-    }
-} */
-
-// mail sent for resent otp forget password
-/* if (isset($_POST["re_fotp"])) {
-    $fmail = $_SESSION["fmail"];
-    $pass_upd = mysqli_query($conn, "SELECT * FROM user WHERE email = '$fmail'");
-    if (mysqli_num_rows($pass_upd) == 1) {
-        mailTo($fmail, 'User', 'Verification!', 'Forget Password verification code is: ' . $_SESSION["f_otp"], "Location: f_otp.php?msg=OTP Successfully Resent!", "Location: index.php?error=Unable to send Mail!");
-    } else {
-        header("Location: index.php?error=E-mail id not found!");
-    }
-} */
-
-/* //checking otp for forget password
-if (isset($_POST["fotp_sub"])) {
-    if ($_SESSION["f_otp"] == $_POST["fu_otp"]) {
-        header("Location: pass.php");
-    } else {
-        header("Location: f_otp.php?fotp_error=OTP not matched!");
-    }
-} */
-
-/* //update forget password
-if (isset($_POST["fp_sub"])) {
-    $fmail = $_SESSION["fmail"];
-    $npass = $_POST["f_pass"];
-    $cpass = $_POST["fc_pass"];
-    if ($npass == $cpass) {
-        $pass = base64_encode($npass);
-        $pass_upd = mysqli_query($conn, "UPDATE user SET password = '$pass' WHERE (email = '$fmail')");
-        if ($pass_upd) {
-            header("Location: index.php?error=Login with New password");
-        }
-    } else {
-        header("Location: pass.php?msg=Password Mismatched!");
-    }
-} */
 
 //change user and admin password
 if (isset($_POST["chg_submit"])) {
