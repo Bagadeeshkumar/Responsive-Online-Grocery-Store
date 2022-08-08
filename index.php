@@ -219,14 +219,12 @@ if (isset($_SESSION["name"])) {
 
                         <div class="form-group row">
                             <div class="col-sm-9 offset-sm-3">
-                                <button type="submit" name="log_submit" class="btn btn-primary">Login</button>
-                                <a href="#m2" class="btn btn-primary" data-dismiss="modal" data-toggle="modal">Sign Up</a>
+                                <button type="submit" name="log_submit" class="btn btn-sm btn-primary">Login</button>
+                                <a href="#m2" class="btn btn-sm btn-primary" data-dismiss="modal" data-toggle="modal">Sign Up</a>
+                                <a href="index.php" class="btn btn-sm btn-secondary">Cancel</a>
                             </div>
                         </div>
                     </form>
-                </div>
-                <div class="modal-footer justify-content-center">
-                    <a href="index.php" class="btn btn-sm btn-secondary">Cancel</a>
                 </div>
             </div>
         </div>
@@ -336,16 +334,14 @@ if (isset($_SESSION["name"])) {
 
                         <div class="form-group row">
                             <div class="col-md-9 offset-sm-3">
-                                <button type="submit" name="log_submit" class="btn btn-primary">Login</button>
-                                <a href="#m2" class="btn btn-primary" data-dismiss="modal" data-toggle="modal">Sign Up</a>
+                                <button type="submit" name="log_submit" class="btn-sm btn btn-primary">Login</button>
+                                <a href="#m2" class="btn btn-primary btn-sm" data-dismiss="modal" data-toggle="modal">Sign Up</a>
+                                <button type="button" class="btn btn-sm btn-secondary" data-dismiss="modal">Cancel</button>
                             </div>
                         </div>
 
                     </form>
 
-                </div>
-                <div class="modal-footer justify-content-center">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
                 </div>
             </div>
         </div>
