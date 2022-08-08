@@ -54,7 +54,7 @@ include "header.php";
       </tbody>
     </table>
   </div>
- <div class="footer-copyright bg-primary text-white fixed bottom text-center py-1">Copyright © 2020 Reserved by Sai Grocery Store</div>
+ <div class="footer-copyright bg-primary text-white fixed-bottom text-center py-1">Copyright © 2020 Reserved by Sai Grocery Store</div>
 </body>
 
 </html>
