@@ -347,7 +347,6 @@ if (isset($_SESSION["name"])) {
                 </div>
                 <div class="modal-footer justify-content-center">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                    <a href="./forgetpassword.php" class="text-danger">Forget Password?</a>
                 </div>
             </div>
         </div>
