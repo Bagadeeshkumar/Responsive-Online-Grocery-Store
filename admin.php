@@ -1,21 +1,22 @@
 <?php
 session_start();
-include "db.php";
-if (!isset($_SESSION["name"])) {
-    header("Location:index.php");
+include 'db.php';
+if (!isset($_SESSION['name'])) {
+    header('Location:index.php');
 }
 ?>
 <!DOCTYPE html>
 <html lang="en">
-<?php
-include "header.php";
-?>
+<?php include 'header.php'; ?>
 
 <body class="mainad">
-    <?php include "nav_ad.php"; ?>
+    <?php include 'nav_ad.php'; ?>
     <!--user history-->
     <?php
-    $run_his = mysqli_query($conn, "SELECT user.user_id, user.name, user.email, user.number, user.address, history.items, history.total, history.date FROM user INNER JOIN history ON user.user_id = history.user_id");
+    $run_his = mysqli_query(
+        $conn,
+        'SELECT user.user_id, user.name, user.email, user.number, user.address, history.items, history.total, history.date FROM user INNER JOIN history ON user.user_id = history.user_id'
+    );
     $c = 1;
     echo "
                 <div class='container-fluid text-nowrap my-5'>
@@ -40,7 +41,7 @@ include "header.php";
                 </div>";
     if (mysqli_num_rows($run_his) > 0) {
         while ($row = mysqli_fetch_assoc($run_his)) {
-            $pur_item = unserialize(base64_decode($row["items"]));
+            $pur_item = unserialize(base64_decode($row['items']));
             echo "
                 <tr>
                     <td>$c</td>
@@ -49,7 +50,9 @@ include "header.php";
                     <td>$row[email]</td>
                     <td>$row[number]</td>
                     <td>$row[address]</td>
-                    <td>" . implode(', ', $pur_item) . "</td>
+                    <td>" .
+                implode(', ', $pur_item) .
+                "</td>
                     <td>$row[total]</td>
                     <td>$row[date]</td>
                 </tr>

@@ -1,17 +1,15 @@
 <?php
 session_start();
-include "db.php";
-if (!isset($_SESSION["name"])) {
-  header("Location:index.php");
+include 'db.php';
+if (!isset($_SESSION['name'])) {
+    header('Location:index.php');
 }
-$name = $_SESSION["name"];
-$page = ($name == 'admin') ? "admin.php" : "user_home.php";
+$name = $_SESSION['name'];
+$page = $name == 'admin' ? 'admin.php' : 'user_home.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
-<?php
-include "header.php";
-?>
+<?php include 'header.php'; ?>
 
 <body>
 
@@ -35,8 +33,10 @@ include "header.php";
         <form action="function_db.php" method="POST">
           <div class="text-center text-nowrap">
             <h2>Change Password</h2>
-            <?php if (isset($_GET["success_chg"])) { ?>
-              <span class="text-success mt-1"><?php echo $_GET["success_chg"]; ?></span>
+            <?php if (isset($_GET['success_chg'])) { ?>
+              <span class="text-success mt-1"><?php echo $_GET[
+                  'success_chg'
+              ]; ?></span>
             <?php } ?>
           </div>
           <div class="form-group row">
@@ -55,8 +55,10 @@ include "header.php";
             <label for="chgcPassword" class="col-sm-5 col-form-label">Confirm Password</label>
             <div class="col-sm-7">
               <input type="password" name="chgc_pass" class="form-control" id="chgcPassword" placeholder="Password" required>
-              <?php if (isset($_GET["error_chg"])) { ?>
-                <span class="text-danger mt-1"><?php echo $_GET["error_chg"]; ?></span>
+              <?php if (isset($_GET['error_chg'])) { ?>
+                <span class="text-danger mt-1"><?php echo $_GET[
+                    'error_chg'
+                ]; ?></span>
               <?php } ?>
             </div>
           </div>

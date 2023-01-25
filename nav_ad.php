@@ -15,7 +15,9 @@
                 <a class="nav-link text-white" href="#m4" data-backdrop="static" data-toggle="modal"><i class="fa fa-plus-square fa-x mr-1"></i>Add Product</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-white dropdown" id="admin" data-toggle="popover" data-placement="bottom" title="User profile"><i class="fa fa-user-circle fa-x mr-1"></i><?php echo $_SESSION["name"]; ?></a>
+                <a class="nav-link text-white dropdown" id="admin" data-toggle="popover" data-placement="bottom" title="User profile"><i class="fa fa-user-circle fa-x mr-1"></i><?php echo $_SESSION[
+                    'name'
+                ]; ?></a>
             </li>
         </ul>
     </div>

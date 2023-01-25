@@ -1,12 +1,12 @@
 <?php
-include "header.php";
-require "db.php";
-if (isset($_SESSION["name"])) {
-    $p_name = $_SESSION["name"];
-    if ($p_name == "admin") {
-        header("Location:admin.php");
+include 'header.php';
+require 'db.php';
+if (isset($_SESSION['name'])) {
+    $p_name = $_SESSION['name'];
+    if ($p_name == 'admin') {
+        header('Location:admin.php');
     } else {
-        header("Location:user_home.php");
+        header('Location:user_home.php');
     }
 }
 ?>
@@ -15,7 +15,7 @@ if (isset($_SESSION["name"])) {
 
 <body>
     <div>
-        <?php include "nav_i.php"; ?>
+        <?php include 'nav_i.php'; ?>
     </div>
 
     <!--body images-->
@@ -73,17 +73,34 @@ if (isset($_SESSION["name"])) {
         <h1 id="item1" class="text-dark">Vegetables</h1>
         <div class="row justify-content-center">
             <?php
-            $veg = mysqli_query($conn, "SELECT * FROM product WHERE p_category = 'Vegetables'");
+            $veg = mysqli_query(
+                $conn,
+                "SELECT * FROM product WHERE p_category = 'Vegetables'"
+            );
             while ($row1 = mysqli_fetch_assoc($veg)) {
                 echo '
                 <div class="col-md-3 m-3 rounded">
                     <div class="card shadow">
-                        <img class="img-fluid" src="images/Vegetables/' . $row1["p_img"] . '" alt="">
+                        <img class="img-fluid" src="images/Vegetables/' .
+                    $row1['p_img'] .
+                    '" alt="">
                         <div class="card-body bg-light">
-                            <h5 class="card-title">' . $row1["p_name"] . '</h5>
+                            <h5 class="card-title">' .
+                    $row1['p_name'] .
+                    '</h5>
                             <div class="card-text">
-                                <p>' . $row1["p_qty"] . ' ' . $row1["p_measure"] . '  = ₹' . $row1["p_price"] . '</p> 
-                                <p>Availability: ' . $row1["available"] . ' ' . $row1["p_measure"] . '</p>
+                                <p>' .
+                    $row1['p_qty'] .
+                    ' ' .
+                    $row1['p_measure'] .
+                    '  = ₹' .
+                    $row1['p_price'] .
+                    '</p> 
+                                <p>Availability: ' .
+                    $row1['available'] .
+                    ' ' .
+                    $row1['p_measure'] .
+                    '</p>
                             </div>
                             <button  href="#m3" data-backdrop="static" data-toggle="modal" class="btn btn-sm btn-primary">Add to cart</button>
                         </div>
@@ -100,17 +117,34 @@ if (isset($_SESSION["name"])) {
         <h1 id="item2" class="text-dark">Drinks</h1>
         <div class="row justify-content-center">
             <?php
-            $drink = mysqli_query($conn, "SELECT * FROM product WHERE p_category = 'Drinks'");
+            $drink = mysqli_query(
+                $conn,
+                "SELECT * FROM product WHERE p_category = 'Drinks'"
+            );
             while ($row2 = mysqli_fetch_assoc($drink)) {
                 echo '
                         <div class="col-md-3 m-3 rounded">
                         <div class="card shadow">
-                        <img class="img-fluid" src="images/Drinks/' . $row2["p_img"] . '" alt="">
+                        <img class="img-fluid" src="images/Drinks/' .
+                    $row2['p_img'] .
+                    '" alt="">
                         <div class="card-body bg-light">
-                            <h5 class="card-title">' . $row2["p_name"] . '</h5>
+                            <h5 class="card-title">' .
+                    $row2['p_name'] .
+                    '</h5>
                             <div class="card-text">
-                                <p>' . $row2["p_qty"] . ' ' . $row2["p_measure"] . '  = ₹' . $row2["p_price"] . '</p> 
-                                <p>Availability: ' . $row2["available"] . ' ' . $row2["p_measure"] . '</p>
+                                <p>' .
+                    $row2['p_qty'] .
+                    ' ' .
+                    $row2['p_measure'] .
+                    '  = ₹' .
+                    $row2['p_price'] .
+                    '</p> 
+                                <p>Availability: ' .
+                    $row2['available'] .
+                    ' ' .
+                    $row2['p_measure'] .
+                    '</p>
                             </div>
                             <button  href="#m3" data-backdrop="static" data-toggle="modal" class="btn btn-sm btn-primary">Add to cart</button>
                         </div>
@@ -128,17 +162,34 @@ if (isset($_SESSION["name"])) {
         <div class="row justify-content-center">
 
             <?php
-            $fruit = mysqli_query($conn, "SELECT * FROM product WHERE p_category = 'Fruits'");
+            $fruit = mysqli_query(
+                $conn,
+                "SELECT * FROM product WHERE p_category = 'Fruits'"
+            );
             while ($row3 = mysqli_fetch_assoc($fruit)) {
                 echo '
                     <div class="col-md-3 m-3 rounded">
                         <div class="card shadow">
-                            <img class="img-fluid" src="images/Fruits/' . $row3["p_img"] . '" alt="">
+                            <img class="img-fluid" src="images/Fruits/' .
+                    $row3['p_img'] .
+                    '" alt="">
                             <div class="card-body bg-light">
-                                <h5 class="card-title">' . $row3["p_name"] . '</h5>
+                                <h5 class="card-title">' .
+                    $row3['p_name'] .
+                    '</h5>
                                 <div class="card-text">
-                                    <p>' . $row3["p_qty"] . ' ' . $row3["p_measure"] . '  = ₹' . $row3["p_price"] . '</p> 
-                                    <p>Availability: ' . $row3["available"] . ' ' . $row3["p_measure"] . '</p>
+                                    <p>' .
+                    $row3['p_qty'] .
+                    ' ' .
+                    $row3['p_measure'] .
+                    '  = ₹' .
+                    $row3['p_price'] .
+                    '</p> 
+                                    <p>Availability: ' .
+                    $row3['available'] .
+                    ' ' .
+                    $row3['p_measure'] .
+                    '</p>
                                 </div>
                                 <button  href="#m3" data-backdrop="static" data-toggle="modal" class="btn btn-sm btn-primary">Add to cart</button>
                             </div>
@@ -156,17 +207,34 @@ if (isset($_SESSION["name"])) {
         <h1 id="item4" class="text-dark">Oils</h1>
         <div class="row justify-content-center">
             <?php
-            $oil = mysqli_query($conn, "SELECT * FROM product WHERE p_category = 'Oils'");
+            $oil = mysqli_query(
+                $conn,
+                "SELECT * FROM product WHERE p_category = 'Oils'"
+            );
             while ($row4 = mysqli_fetch_assoc($oil)) {
                 echo '
                 <div class="col-md-3 m-3 rounded">
                     <div class="card shadow p-1">
-                        <img class="img-fluid" src="images/Oils/' . $row4["p_img"] . '" alt="">
+                        <img class="img-fluid" src="images/Oils/' .
+                    $row4['p_img'] .
+                    '" alt="">
                         <div class="card-body bg-light">
-                            <h5 class="card-title">' . $row4["p_name"] . '</h5>
+                            <h5 class="card-title">' .
+                    $row4['p_name'] .
+                    '</h5>
                             <div class="card-text">
-                                <p>' . $row4["p_qty"] . ' ' . $row4["p_measure"] . '  = ₹' . $row4["p_price"] . '</p> 
-                                <p>Availability: ' . $row4["available"] . ' ' . $row4["p_measure"] . '</p>
+                                <p>' .
+                    $row4['p_qty'] .
+                    ' ' .
+                    $row4['p_measure'] .
+                    '  = ₹' .
+                    $row4['p_price'] .
+                    '</p> 
+                                <p>Availability: ' .
+                    $row4['available'] .
+                    ' ' .
+                    $row4['p_measure'] .
+                    '</p>
                             </div>
                             <button  href="#m3" data-backdrop="static" data-toggle="modal" class="btn btn-sm btn-primary">Add to cart</button>
                         </div>
@@ -178,7 +246,7 @@ if (isset($_SESSION["name"])) {
     </div>
 
 
-    <?php include "footer.php"; ?>
+    <?php include 'footer.php'; ?>
 
     <!-- login modal -->
 
@@ -189,11 +257,11 @@ if (isset($_SESSION["name"])) {
                     <h3 class="modal-title">Login Form</h3>
                     <a href="index.php" class="close btn btn-danger">&times;</a>
                 </div>
-                <?php
-                if (isset($_GET["error"])) {
-                    echo '<span class="text-center text-danger">' . $_GET["error"] . '</span>';
-                }
-                ?>
+                <?php if (isset($_GET['error'])) {
+                    echo '<span class="text-center text-danger">' .
+                        $_GET['error'] .
+                        '</span>';
+                } ?>
                 <div class="modal-body">
                     <!-- login form -->
                     <form action="function_db.php" method="POST">
@@ -239,11 +307,11 @@ if (isset($_SESSION["name"])) {
                     <h3 class="modal-title">Registeration Form</h3>
                     <a href="index.php" class="close btn btn-danger">&times;</a>
                 </div>
-                <?php
-                if (isset($_GET["re_error"])) {
-                    echo '<div class="text-danger text-center">' . $_GET["re_error"] . '</div>';
-                }
-                ?>
+                <?php if (isset($_GET['re_error'])) {
+                    echo '<div class="text-danger text-center">' .
+                        $_GET['re_error'] .
+                        '</div>';
+                } ?>
                 <div class="modal-body">
                     <!-- Registeration form -->
                     <form action="function_db.php" method="POST">
@@ -347,7 +415,7 @@ if (isset($_SESSION["name"])) {
         </div>
     </div>
     <?php
-    if (isset($_GET["error"])) {
+    if (isset($_GET['error'])) {
         echo '
                 <script>
                 $(document).ready(function(){   
@@ -355,7 +423,7 @@ if (isset($_SESSION["name"])) {
                 });
                 </script>';
     }
-    if (isset($_GET["re_error"])) {
+    if (isset($_GET['re_error'])) {
         echo '
                 <script>
                 $(document).ready(function(){   

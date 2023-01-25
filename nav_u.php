@@ -42,7 +42,9 @@
                 <a class="nav-link text-white" href="user_home.php#about"><i class="fa fa-info-circle fa-x mr-1"></i>About us</a>
             </li>
             <li class="nav-item">
-                <span class="nav-link dropdown text-white" data-toggle="popover" data-placement="bottom" id="user" title="User profile"><i class="fa fa-user-circle fa-x mr-1"></i><?php echo $_SESSION["name"]; ?></span>
+                <span class="nav-link dropdown text-white" data-toggle="popover" data-placement="bottom" id="user" title="User profile"><i class="fa fa-user-circle fa-x mr-1"></i><?php echo $_SESSION[
+                    'name'
+                ]; ?></span>
             </li>
         </ul>
     </div>

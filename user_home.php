@@ -1,14 +1,13 @@
 <?php
 session_start();
-include "db.php";
-if (!isset($_SESSION["name"])) {
-    header("Location:index.php");
-} ?>
+include 'db.php';
+if (!isset($_SESSION['name'])) {
+    header('Location:index.php');
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
-<?php
-include "header.php";
-?>
+<?php include 'header.php'; ?>
 <!-- for all ajax request -->
 <script>
     $(function() {
@@ -214,7 +213,7 @@ include "header.php";
 </script>
 
 <body onload="remove()">
-    <?php include "nav_u.php"; ?>
+    <?php include 'nav_u.php'; ?>
 
     <!--body images-->
     <main id="main">
@@ -267,7 +266,7 @@ include "header.php";
 
         </div>
     </main>
-    <?php include "footer.php"; ?>
+    <?php include 'footer.php'; ?>
 
     <!--cart modal-->
 
