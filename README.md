@@ -5,7 +5,7 @@ While the admin can manage the products by changing the quantity available, dele
 
 Visit : [Live demo](https://online-grocery-store.great-site.net/)
 
-[/ ## User Login Credentials
+<!-- ## User Login Credentials
 
 - username/email - john
 - Password - password
@@ -13,7 +13,7 @@ Visit : [Live demo](https://online-grocery-store.great-site.net/)
 ## Admin Login Credentials
 
 - username/email - admin
-- Password - password /]
+- Password - password -->
 
 ## Prerequisites
 
